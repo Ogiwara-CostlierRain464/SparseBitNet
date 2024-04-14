@@ -174,7 +174,7 @@ def main(build_type: str = "Release",
     pkg_dir = project_dir / "tensorrt_llm"
     assert pkg_dir.is_dir(), f"{pkg_dir} is not a directory"
     lib_dir = pkg_dir / "libs"
-    if lib_dir.exists():
+    if clean and lib_dir.exists():
         rmtree(lib_dir)
     lib_dir.mkdir(parents=True)
     if on_windows:
