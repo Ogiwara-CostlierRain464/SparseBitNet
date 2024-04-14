@@ -145,7 +145,7 @@ def main(build_type: str = "Release",
 
     if use_ccache:
         cmake_def_args.append(
-            f"-DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_CUDA_COMPILER_LAUNCHER=ccache"
+            f"-LAH -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_CUDA_COMPILER_LAUNCHER=ccache"
         )
 
     build_pyt = "OFF" if cpp_only else "ON"
