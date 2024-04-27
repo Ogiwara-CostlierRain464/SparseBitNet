@@ -372,3 +372,7 @@ class LLaMAForCausalLM(DecoderModelForCausalLM):
 
     def use_lora(self, lora_config: LoraBuildConfig):
         use_lora(self, lora_config)
+
+
+class BitNetForCausalLM:
+    ...

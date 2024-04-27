@@ -32,6 +32,7 @@ from .mpt.model import MPTForCausalLM, MPTModel
 from .opt.model import OPTForCausalLM, OPTModel
 from .phi.model import PhiForCausalLM, PhiModel
 from .qwen.model import QWenForCausalLM
+from .bitnet.model import BitNetForCausalLM
 
 __all__ = [
     'BertModel',
@@ -69,6 +70,7 @@ __all__ = [
     'SkyworkForCausalLM',
     'GemmaForCausalLM',
     'DbrxForCausalLM',
+    'BitNetForCausalLM',
 ]
 
 MODEL_MAP = {
@@ -92,4 +94,5 @@ MODEL_MAP = {
     'GemmaForCausalLM': GemmaForCausalLM,
     'QWenForCausalLM': QWenForCausalLM,
     'DbrxForCausalLM': DbrxForCausalLM,
+    'BitNetForCausalLM': BitNetForCausalLM,
 }
