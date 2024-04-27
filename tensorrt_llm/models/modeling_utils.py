@@ -382,7 +382,7 @@ class PretrainedModel(Module,
 
         return model
 
-    def load(self, weights):
+    def load(self, weights): # ここでのweightはtorch.Tensor
         expected_names = set([name for name, param in self.named_parameters()])
         provided_names = set(weights.keys())
         assert expected_names.issubset(
@@ -420,7 +420,7 @@ class PretrainedModel(Module,
         # multiple ranks could share same config.json, so adding a save_config parameter to let user avoiding writing config.json in all ranks
         rank = self.config.mapping.rank
         weights = {
-            name: numpy_to_torch(param.raw_value)
+            name: numpy_to_torch(param.raw_value) # torchをいったんnumpyにして綺麗に？
             for name, param in self.named_parameters()
         }
         from safetensors.torch import save_file
@@ -1023,7 +1023,7 @@ def load_model(
             with safetensors.safe_open(model_path, framework='pt',
                                        device='cpu') as f:
                 for key in f.keys():
-                    weights[key] = f.get_tensor(key)
+                    weights[key] = f.get_tensor(key) # ここでもまだTorch Tensor
         else:
             logger.warning(
                 f"Cannot find {model_path}. Use dummy model weights.")

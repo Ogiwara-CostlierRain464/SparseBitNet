@@ -144,7 +144,7 @@ def main(build_type: str = "Release",
     build_dir.mkdir(parents=True, exist_ok=True)
 
     if use_ccache:
-        cmake_def_args.append(
+        cmake_def_args.append( # Don't forget to clear cache variables via deleting CMakeCache.txt
             f"-LAH -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_CUDA_COMPILER_LAUNCHER=ccache"
         )
 
