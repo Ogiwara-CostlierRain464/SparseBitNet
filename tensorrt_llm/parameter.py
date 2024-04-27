@@ -56,7 +56,7 @@ class Parameter:
     def value(self) -> Tensor:
         if (self._value is not None and isinstance(self._value, np.ndarray)
                 and self._value.flags['C_CONTIGUOUS']):
-            self._value = constant(self._value)
+            self._value = constant(self._value) # trt_llm.Tensorに変換
         elif self._value is None or isinstance(self._value, np.ndarray):
             shape = self._shape
             dtype = trt_dtype_to_np(self._dtype)
